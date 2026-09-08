@@ -183,6 +183,7 @@ fun MemoryJungleApp() {
             )
 
             GameBody(
+                modifier = Modifier.weight(1f),
                 difficulty = difficulty,
                 cards = cards,
                 matchedPairs = matchedPairs,
@@ -372,6 +373,7 @@ private fun StatChip(
 
 @Composable
 private fun GameBody(
+    modifier: Modifier = Modifier,
     difficulty: Difficulty,
     cards: List<MemoryCard>,
     matchedPairs: Int,
@@ -380,9 +382,8 @@ private fun GameBody(
     onCardTap: (MemoryCard) -> Unit
 ) {
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
-            .weight(1f)
             .clip(
                 RoundedCornerShape(
                     topStart = 34.dp,
