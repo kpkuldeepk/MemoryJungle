@@ -1,0 +1,39 @@
+MEMORY JUNGLE - MOBILE PHONE SE APK BANANE KA TARIKA
+
+Aapko Android Studio ki zarurat nahi hai.
+
+PART 1 - GitHub par project upload karein
+1. Phone me Chrome kholen.
+2. https://github.com open karein aur login/signup karein.
+3. New repository banayein.
+4. Repository name: MemoryJungle
+5. Public ya Private koi bhi rakh sakte hain.
+6. ZIP ko phone me extract karein.
+7. ZIP ke andar MemoryJungle folder ke andar ki SAARI files GitHub repository ke ROOT me upload karein.
+   Important: codemagic.yaml repository ke root me dikhna chahiye.
+   Root me roughly ye items hone chahiye:
+   - app/
+   - build.gradle.kts
+   - settings.gradle.kts
+   - gradle.properties
+   - codemagic.yaml
+   - README.md
+
+PART 2 - Codemagic se APK banayein
+1. https://codemagic.io open karein.
+2. GitHub se sign in karein.
+3. Add application par tap karein.
+4. GitHub repository MemoryJungle select karein.
+5. Project type me Other / Android / YAML configuration jo option mile select karein.
+6. Finish: Add application karein.
+7. codemagic.yaml detect/scan karein.
+8. Workflow "Memory Jungle APK" select karein.
+9. Start new build / Start build par tap karein.
+10. Build successful hone ke baad Artifacts section me APK milegi.
+11. APK phone me download karein.
+12. Android ke Install unknown apps permission allow karke APK install karein.
+
+IMPORTANT
+- Ye DEBUG APK hai, testing/install ke liye suitable hai.
+- Google Play Store par upload ke liye signed RELEASE APK/AAB + keystore banana hoga.
+- Build config Java 17 + Gradle 9.6 use karta hai.

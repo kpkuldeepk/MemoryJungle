@@ -1,0 +1,28 @@
+workflows:
+  android-debug-apk:
+    name: Memory Jungle APK
+    max_build_duration: 120
+    instance_type: mac_mini_m2
+
+    environment:
+      java: 17
+
+    scripts:
+      - name: Set Android SDK location
+        script: |
+          echo "sdk.dir=$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/local.properties"
+
+      - name: Install Gradle 9.6
+        script: |
+          cd "$CM_BUILD_DIR"
+          curl -L --fail --retry 3             https://services.gradle.org/distributions/gradle-9.6.0-bin.zip             -o gradle-9.6.0-bin.zip
+          unzip -q gradle-9.6.0-bin.zip -d "$HOME/gradle"
+
+      - name: Build debug APK
+        script: |
+          cd "$CM_BUILD_DIR"
+          "$HOME/gradle/gradle-9.6.0/bin/gradle" --no-daemon clean assembleDebug
+
+    artifacts:
+      - app/build/outputs/apk/debug/*.apk
+      - app/build/outputs/**/*.apk
